@@ -23,7 +23,7 @@ public class Discipline {
 	@Column(name = "class_name")
 	private String name;
 	
-	@ManyToOne
+	@OneToOne
 	private User owner;
 	
 	@ManyToMany
