@@ -27,11 +27,8 @@ public class User {
 	@Column(unique = true)
 	private String  email; 
 	
-//	@ManyToMany
-//	private Collection<Discipline> classOwn = new ArrayList<Discipline>();
-//	
-//	@ManyToMany
-//	private Collection<Discipline> classStudy = new ArrayList<Discipline>();
+	@ManyToMany
+	private Collection<Discipline> classes = new ArrayList<Discipline>();
 	
 	
 	public String getNome() {
@@ -50,24 +47,16 @@ public class User {
 		this.email = email;
 	}
 
-//	public Collection<Discipline> getClassOwn() {
-//		return classOwn;
-//	}
-//
-//	public void setClassOwn(Collection<Discipline> classOwn) {
-//		this.classOwn = classOwn;
-//	}
-//
-//	public Collection<Discipline> getClassStudy() {
-//		return classStudy;
-//	}
-//
-//	public void setClassStudy(Collection<Discipline> classStudy) {
-//		this.classStudy = classStudy;
-//	}
-
 	public Long getId() {
 		return id;
+	}
+
+	public Collection<Discipline> getClasses() {
+		return classes;
+	}
+
+	public void setClasses(Collection<Discipline> classes) {
+		this.classes = classes;
 	}
 	
 }

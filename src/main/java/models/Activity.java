@@ -28,10 +28,10 @@ public class Activity {
 	@ManyToOne
 	private Discipline discipline;
 	
-	@OneToMany
+	@ManyToMany
 	private Collection<Comment> comments = new ArrayList<Comment>();
 	
-	@OneToMany
+	@ManyToMany
 	private Collection<Attachment> attachs = new ArrayList<Attachment>();
 
 	public Long getId() {
@@ -65,7 +65,7 @@ public class Activity {
 	public void setDiscipline(Discipline discipline) {
 		this.discipline = discipline;
 	}
-
+	
 	public Collection<Comment> getComments() {
 		return comments;
 	}
