@@ -1,14 +1,19 @@
 package models;
 
-import java.io.File;
+import java.io.IOException;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.apache.commons.io.FilenameUtils;
+
+import utils.ReadLob;
 
 @Entity
 @Table (name = "tbl_attachment")
@@ -24,10 +29,13 @@ public class Attachment {
 	private User user;
 	
 	@Column
-	private Float nota;
+	private String fileName;
 	
 	@Column
-	private File attach;
+	private String fileType;
+	
+	@Lob
+	private byte [] fileLob ;
 
 	public Long getId() {
 		return id;
@@ -52,22 +60,11 @@ public class Attachment {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	public Float getNota() {
-		return nota;
-	}
-
-	public void setNota(Float nota) {
-		this.nota = nota;
-	}
-
-	public File getAttach() {
-		return attach;
-	}
-
-	public void setAttach(File attach) {
-		this.attach = attach;
-	}
 	
-	
+	public void uploadFile(String path) throws IOException {
+		this.fileName = FilenameUtils.removeExtension(FilenameUtils.getName(path));
+		this.fileType = FilenameUtils.getExtension(path);
+		this.fileLob = new ReadLob().getFoto(path);
+	}
+		
 }
