@@ -28,6 +28,9 @@ public class Activity {
 	@ManyToOne
 	private Discipline discipline;
 	
+	@Column
+	private double nota;
+	
 	@ManyToMany
 	private Collection<Comment> comments = new ArrayList<Comment>();
 	
@@ -80,5 +83,13 @@ public class Activity {
 
 	public void setAttachs(Collection<Attachment> attachs) {
 		this.attachs = attachs;
+	}
+
+	public double getNota() {
+		return nota;
+	}
+
+	public void setNota(double nota) {
+		this.nota = nota;
 	}
 }

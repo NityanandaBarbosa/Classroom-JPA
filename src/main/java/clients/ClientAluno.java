@@ -43,13 +43,13 @@ public class ClientAluno {
 		studant.getClasses().add(disc1);
 		
 		attachStudent.setActivity(activ1);
-		attachStudent.setUser(teacher);
-		attachStudent.uploadFile("/classroom/src/main/resources/assests/JPA-hibernate.jpg");
+		attachStudent.setUser(studant);
+		attachStudent.uploadFile("/classroom/src/main/resources/assets/JPA-hibernate.jpg");
 		activ1.getAttachs().add(attachStudent);
 		
 		attachProfessor.setActivity(activ1);
 		attachProfessor.setUser(teacher);
-		attachProfessor.uploadFile("/classroom/src/main/resources/assests/video_drop_phone.mp4");
+		attachProfessor.uploadFile("/classroom/src/main/resources/assets/video_drop_phone.mp4");
 		activ1.getAttachs().add(attachProfessor);
 		
 		publicComment.setUser(teacher);
@@ -62,6 +62,8 @@ public class ClientAluno {
 		privateComment.setMessage("Opa, boa tarde damodara");
 		privateComment.setActiv(activ1);
 		activ1.getComments().add(privateComment);
+		
+		activ1.setNota(9.2);
 		
 		manager.persist(teacher);
 		manager.persist(studant);
