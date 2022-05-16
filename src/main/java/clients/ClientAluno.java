@@ -41,15 +41,16 @@ public class ClientAluno {
 		activ1.setDiscipline(disc1);
 		teacher.getClasses().add(disc1);
 		studant.getClasses().add(disc1);
+		disc1.getActivities().add(activ1);
 		
 		attachStudent.setActivity(activ1);
 		attachStudent.setUser(studant);
-		attachStudent.uploadFile("/classroom/src/main/resources/assets/JPA-hibernate.jpg");
+		attachStudent.uploadFile("src\\main\\resources\\assets\\JPA-hibernate.jpg");
 		activ1.getAttachs().add(attachStudent);
 		
 		attachProfessor.setActivity(activ1);
 		attachProfessor.setUser(teacher);
-		attachProfessor.uploadFile("/classroom/src/main/resources/assets/video_drop_phone.mp4");
+		attachProfessor.uploadFile("src\\main\\resources\\assets\\JPA-hibernate.jpg");
 		activ1.getAttachs().add(attachProfessor);
 		
 		publicComment.setUser(teacher);
@@ -67,8 +68,8 @@ public class ClientAluno {
 		
 		manager.persist(teacher);
 		manager.persist(studant);
-		manager.persist(disc1);
 		manager.persist(activ1);
+		manager.persist(disc1);
 		manager.persist(attachProfessor);
 		manager.persist(attachStudent);
 		manager.persist(publicComment);

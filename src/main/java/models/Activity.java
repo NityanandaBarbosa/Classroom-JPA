@@ -34,7 +34,7 @@ public class Activity {
 	@ManyToMany
 	private Collection<Comment> comments = new ArrayList<Comment>();
 	
-	@ManyToMany
+	@OneToMany
 	private Collection<Attachment> attachs = new ArrayList<Attachment>();
 
 	public Long getId() {
